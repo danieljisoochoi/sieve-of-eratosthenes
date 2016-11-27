@@ -28,7 +28,7 @@
                                     <constraint firstAttribute="height" constant="60" id="UcH-79-bd3"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="42"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="42"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="WXA-uj-K5H"/>
@@ -36,7 +36,7 @@
                             </textField>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of Primes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CLN-if-abA">
                                 <rect key="frame" x="16" y="96" width="343" height="42"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="36"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -50,13 +50,31 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PrimeCell" id="x4o-kS-EAq">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PrimeCell" id="x4o-kS-EAq" customClass="PrimeCell" customModule="SieveOfEratosthenes" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="69" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="69" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Num" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FR5-t4-BHT">
+                                                    <rect key="frame" x="0.0" y="0.0" width="69" height="70"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </view>
+                                        <color key="backgroundColor" red="0.42137829090000001" green="0.69293726619999996" blue="0.87038352269999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="FR5-t4-BHT" firstAttribute="top" secondItem="x4o-kS-EAq" secondAttribute="top" id="G9H-Gz-ryT"/>
+                                            <constraint firstAttribute="trailing" secondItem="FR5-t4-BHT" secondAttribute="trailing" id="PIB-pI-xmX"/>
+                                            <constraint firstAttribute="bottom" secondItem="FR5-t4-BHT" secondAttribute="bottom" id="ky2-pg-z5j"/>
+                                            <constraint firstItem="FR5-t4-BHT" firstAttribute="leading" secondItem="x4o-kS-EAq" secondAttribute="leading" id="pAY-8x-5MN"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="number" destination="FR5-t4-BHT" id="Kge-9c-oPa"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>

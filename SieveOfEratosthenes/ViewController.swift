@@ -48,6 +48,9 @@ class ViewController: UIViewController
         guard let limit = Int(upperBound) else { return }
 
         sieve.upperBound = limit
+        primesCountLabel.text = "\(sieve.numberOfPrimes) prime" + (sieve.numberOfPrimes > 1 ? "s" : "")
+        primesCountLabel.textColor = .gray
+        primesCountLabel.isHidden = false
         collectionView.reloadData()
     }
 }
@@ -62,9 +65,10 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! PrimeCell
         
-        cell.backgroundColor = .blue
+        //cell.backgroundColor = .blue
+        cell.number.text = "\(sieve.primes[indexPath.item])"
         
         return cell
     }
