@@ -13,6 +13,10 @@ class Sieve {
     private var isPrime = [Bool]()
     var primes = [Int]()
     
+    var numberOfPrimes: Int {
+        return primes.count
+    }
+    
     var upperBound: Int = 0 {
         didSet {
             primes = sieveOfErasthosthenes(for: upperBound)
