@@ -44,6 +44,11 @@ class ViewController: UIViewController
     
     @objc private func doneButtonAction() {
         textField.resignFirstResponder()
+        guard let upperBound = textField.text else { return }
+        guard let limit = Int(upperBound) else { return }
+
+        sieve.upperBound = limit
+        collectionView.reloadData()
     }
 }
 
