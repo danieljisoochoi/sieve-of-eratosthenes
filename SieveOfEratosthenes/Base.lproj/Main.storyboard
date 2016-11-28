@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hbn-g0-fpg">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -7,10 +7,11 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Primes-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SieveOfEratosthenes" customModuleProvider="target" sceneMemberID="viewController">
@@ -23,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="upper bound" textAlignment="natural" minimumFontSize="42" translatesAutoresizingMaskIntoConstraints="NO" id="1RS-eQ-ihy">
-                                <rect key="frame" x="16" y="28" width="343" height="60"/>
+                                <rect key="frame" x="16" y="72" width="343" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="UcH-79-bd3"/>
                                 </constraints>
@@ -34,31 +35,31 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="WXA-uj-K5H"/>
                                 </connections>
                             </textField>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of Primes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CLN-if-abA">
-                                <rect key="frame" x="16" y="96" width="343" height="42"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of Primes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CLN-if-abA">
+                                <rect key="frame" x="16" y="140" width="343" height="42"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="36"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7G9-M1-ONw">
-                                <rect key="frame" x="16" y="146" width="343" height="501"/>
+                                <rect key="frame" x="16" y="190" width="343" height="457"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Oxj-Sl-I87">
-                                    <size key="itemSize" width="69" height="70"/>
+                                    <size key="itemSize" width="70" height="70"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PrimeCell" id="x4o-kS-EAq" customClass="PrimeCell" customModule="SieveOfEratosthenes" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="69" height="70"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="69" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Num" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FR5-t4-BHT">
-                                                    <rect key="frame" x="0.0" y="0.0" width="69" height="70"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -74,6 +75,10 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="number" destination="FR5-t4-BHT" id="Kge-9c-oPa"/>
+                                            <segue destination="QZs-k1-NYh" kind="show" identifier="PrimeDetail" id="3VI-0K-ng0">
+                                                <segue key="commit" inheritsFrom="parent" id="Bjd-Bs-DXV"/>
+                                                <segue key="preview" inheritsFrom="commit" id="Swk-Vv-0uN"/>
+                                            </segue>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -97,6 +102,7 @@
                             <constraint firstAttribute="leadingMargin" secondItem="1RS-eQ-ihy" secondAttribute="leading" id="oiH-6g-Cwd"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Primes" id="cZ0-jw-rV4"/>
                     <connections>
                         <outlet property="collectionView" destination="7G9-M1-ONw" id="0vt-LU-sm1"/>
                         <outlet property="primesCountLabel" destination="CLN-if-abA" id="gHh-Vz-giX"/>
@@ -105,7 +111,62 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1076" y="138.98050974512745"/>
+        </scene>
+        <!--Number-->
+        <scene sceneID="GAH-TS-PB9">
+            <objects>
+                <viewController id="QZs-k1-NYh" customClass="DetailViewController" customModule="SieveOfEratosthenes" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="B1J-xy-Cpf"/>
+                        <viewControllerLayoutGuide type="bottom" id="dMZ-Kj-ZU2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5hh-AV-FKQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rz9-Ob-oAi">
+                                <rect key="frame" x="79.5" y="298" width="216" height="70"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="60"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.42137829090000001" green="0.69293726619999996" blue="0.87038352269999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Rz9-Ob-oAi" firstAttribute="centerX" secondItem="5hh-AV-FKQ" secondAttribute="centerX" id="RMs-6g-sKE"/>
+                            <constraint firstItem="Rz9-Ob-oAi" firstAttribute="centerY" secondItem="5hh-AV-FKQ" secondAttribute="centerY" id="Zmm-27-Vdi"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Number" id="JGE-ge-aFh"/>
+                    <connections>
+                        <outlet property="numberLabel" destination="Rz9-Ob-oAi" id="8g3-CU-eLU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xq2-Cw-s0f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2012" y="139"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="IPJ-92-X26">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hbn-g0-fpg" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GF1-FY-gac">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="icD-qR-qP6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U1q-Z2-b7p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="3VI-0K-ng0"/>
+    </inferredMetricsTieBreakers>
 </document>

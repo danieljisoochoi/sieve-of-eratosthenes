@@ -13,19 +13,37 @@ class ViewController: UIViewController
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var primesCountLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
-
+    
+    var primesCount: Int? {
+        didSet {
+            if let count = primesCount {
+                primesCountLabel.text = "\(count) prime" + (count == 1 ? "" : "s")
+            } else {
+                primesCountLabel.text = nil
+            }
+        }
+    }
+    
     let sieve = Sieve()
     let reuseIdentifier = "PrimeCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        navigationController?.navigationBar.titleTextAttributes =
+        [
+            NSFontAttributeName: UIFont(name: "Helvetica Neue", size: 20)!
+        ]
         
         textField.delegate = self
-        
+        primesCountLabel.text = ""
+        primesCountLabel.textColor = .gray
+
         addDoneButtonOnKeyboard()
     }
     
+    // adds Done button on toolbar above number pad keyboard, that sends text in field
+    // to sieve
     private func addDoneButtonOnKeyboard() {
         let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
         doneToolbar.barStyle       = UIBarStyle.default
@@ -45,12 +63,14 @@ class ViewController: UIViewController
     @objc private func doneButtonAction() {
         textField.resignFirstResponder()
         guard let upperBound = textField.text else { return }
-        guard let limit = Int(upperBound) else { return }
-
-        sieve.upperBound = limit
-        primesCountLabel.text = "\(sieve.numberOfPrimes) prime" + (sieve.numberOfPrimes > 1 ? "s" : "")
-        primesCountLabel.textColor = .gray
-        primesCountLabel.isHidden = false
+        if let limit = Int(upperBound) {
+            sieve.upperBound = limit
+            primesCountLabel.isHidden = false
+        } else {
+            sieve.upperBound = 0
+            primesCountLabel.isHidden = true
+        }
+        primesCount = sieve.numberOfPrimes
         collectionView.reloadData()
     }
 }
@@ -71,6 +91,14 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         cell.number.text = "\(sieve.primes[indexPath.item])"
         
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PrimeDetail" {
+            guard let cell = sender as? PrimeCell else { return }
+            guard let vc = segue.destination as? DetailViewController else { return }
+            vc.number = cell.number.text ?? ""
+        }
     }
 }
 

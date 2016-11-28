@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A2A300C1DEBDBD500E7F9BF /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2A300B1DEBDBD500E7F9BF /* DetailViewController.swift */; };
 		1AA883171DE962BF00D69EBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA883161DE962BF00D69EBD /* AppDelegate.swift */; };
 		1AA883191DE962BF00D69EBD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA883181DE962BF00D69EBD /* ViewController.swift */; };
 		1AA8831C1DE962BF00D69EBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AA8831A1DE962BF00D69EBD /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A2A300B1DEBDBD500E7F9BF /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		1AA883131DE962BF00D69EBD /* SieveOfEratosthenes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SieveOfEratosthenes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AA883161DE962BF00D69EBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1AA883181DE962BF00D69EBD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 			children = (
 				1AA883161DE962BF00D69EBD /* AppDelegate.swift */,
 				1AA883181DE962BF00D69EBD /* ViewController.swift */,
+				1A2A300B1DEBDBD500E7F9BF /* DetailViewController.swift */,
 				1AA8831A1DE962BF00D69EBD /* Main.storyboard */,
 				1AA8831D1DE962BF00D69EBD /* Assets.xcassets */,
 				1AA8831F1DE962BF00D69EBD /* LaunchScreen.storyboard */,
@@ -209,6 +212,7 @@
 			files = (
 				1AA883191DE962BF00D69EBD /* ViewController.swift in Sources */,
 				1AA883371DE962CE00D69EBD /* Sieve.swift in Sources */,
+				1A2A300C1DEBDBD500E7F9BF /* DetailViewController.swift in Sources */,
 				1AA883171DE962BF00D69EBD /* AppDelegate.swift in Sources */,
 				1AA883391DEAA9F900D69EBD /* PrimeCell.swift in Sources */,
 			);

@@ -24,6 +24,7 @@ class Sieve {
     }
     
     private func sieveOfErasthosthenes(for limit: Int) -> [Int] {
+        
         guard limit > 1 else { return [] }
         
         isPrime = [Bool](repeating: true, count: limit+1)
