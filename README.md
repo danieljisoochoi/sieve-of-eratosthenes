@@ -1,0 +1,16 @@
+# Sieve-of-Eratosthenes
+
+## Prompt
+Create an iOS app that implements the Sieve of Eratosthenes algorithm: https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes.
+
+## Thought Process
+This problem was very open-ended, and left a lot of room for creativity. The Sieve of Eratosthenes algorithm is an efficient way to calculate all prime numbers from 0 to a specified upper bound (inclusive). The app I implemented created an object that would calculate the prime numbers until a specified bound, and would display it to the user as a collection of cells representing each prime number.
+
+### Algorithm
+I created a class called Sieve, that would compute the prime numbers and return the data as an array. The algorithm initializes an array of booleans all set to true, the size of the upper bound input plus one. It immediately sets the first two indices (0 and 1) to false, since those are edge cases of non-prime numbers. Then the algorithm iterates from 2 to upper bound, and sets all multiples of the starting iterator to false. At the end of the algorithm, I used a useful feature of Swift and mapped the array of booleans to an array of integers, representing the indices that were true at the end of the algorithm. The mapped array is then stored to be displayed to the user.
+
+### UI
+There are countless ways to present this algorithm to the user. The first decision I made was to display only the prime numbers, and not the algorithm in action. I decided this because most users don't care about how a result is achieved, merely that it is correct. Also, to display to the user potentially thousands of buckets of an array that are constantly changing is not feasible on a mobile device. I also decided to display the prime numbers with a collection view rather than a table view, because the cells would only hold a single number, which would be wasteful of an entire table view cell row. Also loading the data into a tableview would take 4x longer to scroll to the bottom than 4 cells per row. The user would input the upper bound in a textfield at the top, and display a number pad as the keyboard. I chose this because only positive integers are allowed as input, and prevents handling a lot of errors. I added a Done button to the keyboard since it doesn't come with a Return button. Another feature I added was displaying a label that counted how many primes there were from 0 to the specified upper bound. Lastly, I allowed the cells to be 3D touched to display the number on a preview and detail controller, so as to see the full number in case it was cut off in the collection view. With all this in mind, the user could input as many values as they wanted, and the collection view would update accordingly.
+
+### Drawbacks
+One of the drawbacks that I didn't assess was when provided an incredibly large number, say 2 million, as the upper bound, the UI freezes while it calculates the prime numbers, and doesn't indicate unresponsiveness during that time. I tried to use an activity indicator to "fix" this issue, however the keyboard would not dismiss before the algorithm was called. Given more time to research, I would have added the activity indicator to the collection view until it was fully loaded. An alternative was to load cells in chunks, and once you scrolled down to the threshold, the collection view would reload and add more cells to it.
