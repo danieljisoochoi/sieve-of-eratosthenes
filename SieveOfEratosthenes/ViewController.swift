@@ -66,6 +66,8 @@ class ViewController: UIViewController
         if let limit = Int(upperBound) {
             sieve.upperBound = limit
             primesCountLabel.isHidden = false
+            // remove any leading zeros
+            textField.text = String(limit)
         } else {
             sieve.upperBound = 0
             primesCountLabel.isHidden = true
