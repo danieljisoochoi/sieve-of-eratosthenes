@@ -152,9 +152,10 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hbn-g0-fpg" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GF1-FY-gac">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="GF1-FY-gac">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.42137829090000001" green="0.69293726619999996" blue="0.87038352269999997" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

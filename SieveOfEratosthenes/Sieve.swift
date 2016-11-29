@@ -36,7 +36,6 @@ class Sieve {
         for i in 2..<isPrime.count where isPrime[i] {
             var j = i*i
             while j <= limit {
-                print(j)
                 isPrime[j] = false
                 j += i
             }
