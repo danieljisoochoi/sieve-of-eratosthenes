@@ -13,6 +13,7 @@ class ViewController: UIViewController
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var primesCountLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var primesCount: Int? {
         didSet {
@@ -24,6 +25,7 @@ class ViewController: UIViewController
         }
     }
     
+    var defaultBackgroundColor = UIColor()
     let sieve = Sieve()
     let reuseIdentifier = "PrimeCell"
     
@@ -38,6 +40,9 @@ class ViewController: UIViewController
         textField.delegate = self
         primesCountLabel.text = ""
         primesCountLabel.textColor = .gray
+        activityIndicator.hidesWhenStopped = true
+        
+        defaultBackgroundColor = view.backgroundColor!
 
         addDoneButtonOnKeyboard()
     }
@@ -62,18 +67,31 @@ class ViewController: UIViewController
     
     @objc private func doneButtonAction() {
         textField.resignFirstResponder()
+        activityIndicator.startAnimating()
+        collectionView.backgroundColor = UIColor(white: 0.0, alpha: 0.1)
         guard let upperBound = textField.text else { return }
         if let limit = Int(upperBound) {
-            sieve.upperBound = limit
-            primesCountLabel.isHidden = false
-            // remove any leading zeros
-            textField.text = String(limit)
+            DispatchQueue.global(qos: .background).async {
+                self.sieve.upperBound = limit
+                DispatchQueue.main.async {
+                    self.primesCountLabel.isHidden = false
+                    // remove any leading zeros
+                    self.textField.text = String(limit)
+                    self.primesCount = self.sieve.numberOfPrimes
+                    self.collectionView.reloadData()
+                    self.activityIndicator.stopAnimating()
+                    self.collectionView.backgroundColor = self.defaultBackgroundColor
+                }
+            }
+            
         } else {
             sieve.upperBound = 0
             primesCountLabel.isHidden = true
+            primesCount = sieve.numberOfPrimes
+            collectionView.reloadData()
+            collectionView.backgroundColor = defaultBackgroundColor
         }
-        primesCount = sieve.numberOfPrimes
-        collectionView.reloadData()
+        
     }
 }
 

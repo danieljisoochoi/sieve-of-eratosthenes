@@ -50,6 +50,10 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
+                                <activityIndicatorView key="backgroundView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" id="T62-JI-LPO">
+                                    <rect key="frame" x="153" y="210" width="37" height="37"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </activityIndicatorView>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PrimeCell" id="x4o-kS-EAq" customClass="PrimeCell" customModule="SieveOfEratosthenes" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
@@ -104,6 +108,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Primes" id="cZ0-jw-rV4"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="T62-JI-LPO" id="Wpd-MA-77N"/>
                         <outlet property="collectionView" destination="7G9-M1-ONw" id="0vt-LU-sm1"/>
                         <outlet property="primesCountLabel" destination="CLN-if-abA" id="gHh-Vz-giX"/>
                         <outlet property="textField" destination="1RS-eQ-ihy" id="oAb-xi-znr"/>
@@ -152,7 +157,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hbn-g0-fpg" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="GF1-FY-gac">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GF1-FY-gac">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.42137829090000001" green="0.69293726619999996" blue="0.87038352269999997" alpha="1" colorSpace="calibratedRGB"/>
